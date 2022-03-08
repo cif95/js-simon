@@ -2,3 +2,7 @@ body{
 	background-color: rgb(173, 207, 221);
 	font-family: 'Raleway';
 }
+
+section#memory-game div#result-output img{
+	width:50%;
+}
