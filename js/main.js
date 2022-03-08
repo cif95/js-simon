@@ -9,20 +9,27 @@ for ( let i = 1; i <= 5; i++){
 	document.getElementById(`num-${i}`).innerHTML = randomInt(1, 150);
 }
 let resultOutput = document.querySelector('#result-output');
-let userCorrectAnswer = 0 ;
+let userCorrectAnswers = 0 ;
 
-setTimeout(function() {
+setTimeout( function() {
 	document.querySelector('#numbers-group').classList.add('d-none');
 	for ( let i = 1; i <= 5; i++){
-		let userAnswer = parseInt(prompt(`Insert number ${i} `));
-		console.log(userAnswer);
+		let userAnswer;
+		while(isNaN(userAnswer)){
+			userAnswer = parseInt(prompt(`Insert number ${i} `));
+		}
 		if (document.getElementById(`num-${i}`).innerHTML == userAnswer){
-			userCorrectAnswer++;
-			resultOutput.innerHTML += ` User guessed number ${i} `
+			userCorrectAnswers++;
+		}
+		if (i == 5) {
+			setTimeout( function() {
+				resultOutput.innerHTML += ` 
+				User guessed number ${i} `;
+			}, 0);
 		}
 	}
-	resultOutput.innerHTML += `Totally, user guessed ${userCorrectAnswer} numbers`
-}, 3000);
+	resultOutput.innerHTML += `Totally, user guessed ${userCorrectAnswers} numbers.`;
+}, 1000);
 
 
 
