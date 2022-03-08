@@ -6,10 +6,11 @@
 
 // creating 5 random integers in 5 different output dom Elements
 for ( let i = 1; i <= 5; i++){
-	document.getElementById(`num-${i}`).innerHTML = randomInt(1, 150);
+	document.getElementById(`num-${i}`).innerHTML += ` : ${randomInt(1, 1000)}`;
 }
 let resultOutput = document.querySelector('#result-output');
 let userCorrectAnswers = 0 ;
+
 
 setTimeout( function() {
 	document.querySelector('#numbers-group').classList.add('d-none');
@@ -18,18 +19,13 @@ setTimeout( function() {
 		while(isNaN(userAnswer)){
 			userAnswer = parseInt(prompt(`Insert number ${i} `));
 		}
-		if (document.getElementById(`num-${i}`).innerHTML == userAnswer){
+		if (document.getElementById(`num-${i}`).innerHTML = userAnswer){
 			userCorrectAnswers++;
-		}
-		if (i == 5) {
-			setTimeout( function() {
-				resultOutput.innerHTML += ` 
-				User guessed number ${i} `;
-			}, 0);
+			resultOutput.innerHTML += ` User guessed number ${i} `;
 		}
 	}
 	resultOutput.innerHTML += `Totally, user guessed ${userCorrectAnswers} numbers.`;
-}, 1000);
+}, 3000);
 
 
 
