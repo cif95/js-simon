@@ -21,10 +21,13 @@ setTimeout( function() {
 		}
 		if (document.getElementById(`num-${i}`).innerHTML = userAnswer){
 			userCorrectAnswers++;
-			resultOutput.innerHTML += ` User guessed number ${i} `;
+			resultOutput.innerHTML += `<span class="d-none">User guessed number ${i}. </span>`;
 		}
 	}
-	resultOutput.innerHTML += `Totally, user guessed ${userCorrectAnswers} numbers.`;
+	console.log(resultOutput.children.classList);
+	document.querySelector('span.d-none').classList.remove('d-none');
+	resultOutput.innerHTML += `
+	Totally, user guessed ${userCorrectAnswers} numbers.`;
 }, 3000);
 
 
