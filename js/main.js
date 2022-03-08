@@ -21,10 +21,11 @@ setTimeout( function() {
 		}
 		if (document.getElementById(`num-${i}`).innerHTML == userAnswer){
 			userCorrectAnswers++;
-			resultOutput.innerHTML += `<p> You guessed number ${i}. </p>`;
+			resultOutput.innerHTML += `<p> guessed number ${i}. </p>`;
 			resultOutput.classList.add('d-none');
 		}
 	}
+	document.querySelector('#numbers-group').classList.remove('d-none');
 	resultOutput.classList.remove('d-none');
 	resultOutput.innerHTML += `
 	Totally, you guessed ${userCorrectAnswers} numbers.`;
