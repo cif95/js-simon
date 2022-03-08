@@ -6,7 +6,7 @@
 
 // creating 5 random integers in 5 different output dom Elements
 for ( let i = 1; i <= 5; i++){
-	document.getElementById(`num-${i}`).innerHTML += ` : ${randomInt(1, 1000)}`;
+	document.getElementById(`num-${i}`).innerHTML = randomInt(1, 1000);
 }
 let resultOutput = document.querySelector('#result-output');
 let userCorrectAnswers = 0 ;
@@ -17,19 +17,18 @@ setTimeout( function() {
 	for ( let i = 1; i <= 5; i++){
 		let userAnswer;
 		while(isNaN(userAnswer)){
-			userAnswer = parseInt(prompt(`Insert number ${i} `));
+			userAnswer = parseInt(prompt(`Insert number ${i}`));
 		}
-		if (document.getElementById(`num-${i}`).innerHTML = userAnswer){
+		if (document.getElementById(`num-${i}`).innerHTML == userAnswer){
 			userCorrectAnswers++;
-			resultOutput.innerHTML += `<span class="d-none">User guessed number ${i}. </span>`;
+			resultOutput.innerHTML += `<p> You guessed number ${i}. </p>`;
+			resultOutput.classList.add('d-none');
 		}
 	}
-	console.log(resultOutput.children.classList);
-	document.querySelector('span.d-none').classList.remove('d-none');
+	resultOutput.classList.remove('d-none');
 	resultOutput.innerHTML += `
-	Totally, user guessed ${userCorrectAnswers} numbers.`;
+	Totally, you guessed ${userCorrectAnswers} numbers.`;
 }, 3000);
-
 
 
 /**Function that creates a random integer between two values
