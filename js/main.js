@@ -27,14 +27,10 @@ setTimeout( function() {
 	}
 	document.querySelector('#numbers-group').classList.remove('d-none');
 	resultOutput.classList.remove('d-none');
-	if (userCorrectAnswers >= 1) {
+		let stringOutput = 
+		(userCorrectAnswers > 1) ? 'numbers' : 'number';
 		resultOutput.innerHTML += `
-		Totally, you guessed ${userCorrectAnswers} numbers.`;
-	} else {
-		resultOutput.innerHTML += `
-		You didn't guess any number...Keep trying!
-		<img class="pt-3" src="img/meme.jpg" alt="memory meme image">`;
-	}
+		Totally, you guessed ${userCorrectAnswers} ${stringOutput}.`;	
 }, 3000);
 
 
